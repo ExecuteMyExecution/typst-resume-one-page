@@ -5,7 +5,7 @@
 
 #let (resume-header, resume-entry) = setup-styles(
   font-size: 11pt,
-  element-spaciness: 1.10,
+  element-spaciness: 1.2,
 )
 
 #show: resume-header.with(
@@ -13,7 +13,8 @@
   profile-image: "/assets/drluoji-avatar.png",
   basic-info: ([_男 · 博士研究生 · 中共党员_],),
   telephone: "198-9850-2110",
-  email: "luoji@example.com",
+  email: "luoji@126.com",
+  wechat-id: "luoji_",
   other-link: "http://typst.app/",
   location: "北京",
 )
@@ -100,15 +101,6 @@
 )[
   - 策划并实施太阳系轨道上的威慑系统部署，在太阳系轨道上布置 3614 颗携带特殊油膜物质具有广播功能的恒星级氢弹，能够向宇宙暴露文明坐标。
   - 建立了与生命特征检测系统的联动机制，实现了对三体文明的有效威慑。
-]
-
-#resume-entry(
-  title: "曲率驱动研究项目",
-  subtitle: "领导者",
-  date: "掩体纪元中期",
-)[
-  - 组织领导水星大坑曲率驱动技术研究，发现黑域与曲率飞船航迹的关联。
-  - 为人类文明研制出曲率引擎。
 ]
 
 = 奖项和荣誉

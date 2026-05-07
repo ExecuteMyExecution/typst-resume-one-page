@@ -1,11 +1,11 @@
-#import "@preview/fontawesome:0.6.0": *
+#import "@preview/nerd-icons:0.2.0": nf-icon
 
 #let setup-styles(
   accent-color: rgb("#179299"),
   background-color: rgb("#ffffff"),
-  sans-serif-font: "Source Han Sans SC",
-  serif-font: "Source Han Serif SC", 
-  alt-font: "Source Han Sans SC",
+  sans-serif-font: ("Noto Sans CJK SC", "Source Han Sans SC"),
+  serif-font: ("Noto Serif CJK SC", "Source Han Serif SC"),
+  alt-font: ("Noto Sans CJK SC", "Source Han Sans SC"),
   font-size: 11pt,
   element-spaciness: 1.00,
   separator: " · "
@@ -17,6 +17,7 @@
     basic-info: (),
     telephone: "",
     email: "",
+    wechat-id: "",
     github-id: "",
     other-link: "",
     location: "",
@@ -40,9 +41,9 @@
     )
     set text(
       font: ( // 修一下中文字体里的全角符号
-        (name: "Times New Roman", covers: regex("•")),
+        (name: "New Computer Modern", covers: regex("•")),
         serif-font,
-      ),
+      ).flatten(),
       lang: "zh",
       size: font-size,     // 全局字号
       ligatures: false
@@ -68,24 +69,27 @@
     // 生成联系方式内容
     let contacts = ()
     if telephone != "" {
-      contacts.push([ #fa-phone() #h(0.2em) #telephone ])
+      contacts.push([ #nf-icon("nf-md-phone_in_talk") #h(0.2em) #telephone ])
+    }
+    if wechat-id != "" {
+      contacts.push([ #nf-icon("nf-fa-wechat") #h(0.2em) #wechat-id ])
     }
     if email != "" {
-      contacts.push([ #fa-envelope(solid: true) #h(0.3em) #link("mailto:" + email)[#email] ])
+      contacts.push([ #h(0.1em) #nf-icon("nf-fa-envelope") #h(0.2em) #link("mailto:" + email)[#email] ])
     }
     if github-id != "" {
       contacts.push({
         h(0.2em)
-        fa-github()
-        h(0.4em)
+        nf-icon("nf-md-github")
+        h(0.2em)
         link("https://github.com/" + github-id, "github.com/" + github-id)
       })
     }
     if other-link != "" {
-      contacts.push([ #fa-link() #h(0.2em)  #link(other-link, other-link) ])
+      contacts.push([ #nf-icon("nf-fa-link") #h(0.2em)  #link(other-link, other-link) ])
     }
     if location != "" {
-      contacts.push([ #fa-location-dot() #h(0.2em) #location])
+      contacts.push([ #nf-icon("nf-fa-location_dot") #h(0.2em) #location])
     }
 
     // 右上角图像
