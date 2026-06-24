@@ -3,9 +3,9 @@
 #let setup-styles(
   accent-color: rgb("#179299"),
   background-color: rgb("#ffffff"),
-  sans-serif-font: ("Noto Sans CJK SC", "Source Han Sans SC"),
-  serif-font: ("Noto Serif CJK SC", "Source Han Serif SC"),
-  alt-font: ("Noto Sans CJK SC", "Source Han Sans SC"),
+  sans-serif-font: ("Noto Sans CJK SC",),
+  serif-font: ("Noto Serif CJK SC",),
+  alt-font: ("Noto Sans CJK SC",),
   font-size: 11pt,
   element-spaciness: 1.00,
   separator: " · "
@@ -86,7 +86,8 @@
       })
     }
     if other-link != "" {
-      contacts.push([ #nf-icon("nf-fa-link") #h(0.2em)  #link(other-link, other-link) ])
+      let display-link = other-link.replace(regex("^https?://"), "").trim("/", at: end)
+      contacts.push([ #nf-icon("nf-fa-link") #h(0.2em)  #link(other-link, display-link) ])
     }
     if location != "" {
       contacts.push([ #nf-icon("nf-fa-location_dot") #h(0.2em) #location])
