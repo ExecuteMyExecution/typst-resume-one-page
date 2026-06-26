@@ -22,14 +22,14 @@
   subtitle: "计算机科学与技术,本科",
   date: "2019.09 – 2024.06",
 )[
-  - #emph[GPA: 3.51/4.33] 专业前10%；人民奖学金；优秀毕业生
+  - #emph[GPA: 3.61/4.33] 专业前10%；人民奖学金；优秀毕业生
 ]
 
 = 核心技能
 
-- *云平台与容器编排*：AWS（ELB/RDS/Lambda/DocumentDB/S3）、阿里云、Kubernetes、Karpenter、cronhpa-controller
+- *云平台与容器编排*：AWS（EKS/ELB/RDS/Lambda/DocumentDB/S3/MSK）、阿里云（ACK/PolarDB/OSS）、Kubernetes、Karpenter、Terraform
 - *监控与可观测性*：Prometheus、Grafana、SLA/告警体系设计
-- *自动化与工程化*：CI/CD流水线建设、Shell/Python自动化脚本、存储架构改造（AFS/HBase → S3）
+- *自动化与工程化*：CI/CD流水线建设、Shell/Python自动化脚本、存储架构设计与迁移
 - *编程语言*：Python、Java、PHP（具备阅读与开发能力，云基础设施方向以Python/Shell为主）
 - *辅助能力*：前端开发（React、Vue、Three.js），可支撑基础设施配套工具与可视化平台开发
 
@@ -41,7 +41,7 @@
   date: "2025.06 – 至今",
 )[
   - 负责海外自动驾驶地图产线基础设施建设，覆盖中东、欧洲2个区域及AWS、阿里云多云环境，服务稳定性99%+，0重大故障。
-  - 主导云资源成本治理专项，通过弹性伸缩、Ingress收敛、定时启停等手段实现固定成本降低1000+\$/天（详见项目经历）。
+  - 主导云资源成本治理专项，通过弹性伸缩、Ingress收敛、定时启停等手段实现固定成本降低1000+\$/天。
   - 搭建Prometheus+Grafana全链路监控告警体系，完成30+服务CNAP迁移及多环境CI/CD流水线建设。
 ]
 
@@ -65,6 +65,17 @@
 = 项目经历
 
 #resume-entry(
+  title: "多云基础设施IaC平台建设",
+  subtitle: "百度 · IDG海外技术部 · 项目负责人",
+  date: "2025.06 – 至今",
+)[
+  - 背景：海外产线横跨AWS和阿里云，基础设施手工管理效率低、配置漂移难追踪。
+  - 设计分层Terraform架构（bootstrap→stack→module），覆盖VPC/EKS/RDS/DocumentDB/Redis/Kafka/S3等12+类资源。
+  - 实现import-first工作流，将存量资源逐步纳管；编写自动化脚本支持按模块粒度plan/apply，降低变更风险。
+  - 结果：实现AWS 2个区域+阿里云1个区域的基础设施全量IaC化，配置变更全程可审计、可回滚。
+]
+
+#resume-entry(
   title: "云资源成本优化项目",
   subtitle: "百度 · IDG海外技术部 · 项目负责人",
   date: "2025.08 – 2026.03",
@@ -85,7 +96,6 @@
   - 背景：支持自动驾驶地图业务海外扩张，需在AWS中东/欧洲及阿里云环境复刻国内地图生产产线。
   - 设计资料服务存储改造方案（AFS/Table→S3），完成rowKey→s3Key转换及MySQL元信息接入。
   - 负责后处理、外参服务、解算平台等多模块部署联调，完成镜像依赖替换及HTTPS零信任域名适配。
-  - 推动统一代码库支撑多云多地域部署，彻底消除对AWS的强依赖。
   - 结果：中东区域高精地图全流程打通并OTA上线；欧洲合规产线交付50KM高精地图，链路稳定性99%+。
 ]
 
