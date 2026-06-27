@@ -36,7 +36,7 @@
     )
     set par(
       justify: true,
-      leading: 0.5em * element-spaciness, // 行距
+      leading: 0.7em * element-spaciness, // 行距
       spacing: 0.9em * element-spaciness, // 段间距
     )
     set text(
@@ -96,7 +96,7 @@
     // 右上角图像
     if profile-image != "" {
       // 适应标题小节的高度
-      let header-height = 3em + 2.1em * element-spaciness
+      let header-height = 4em + 2.1em * element-spaciness
       if basic-info.len() > 0 {
         header-height += 1em + 0.5em * element-spaciness
       }
@@ -150,7 +150,7 @@
     // 条目详细内容
     if (body != []) {
       linebreak()
-      v(-0.4em * element-spaciness) // 取消段间距
+      v(-0.1em * element-spaciness) // 取消段间距
       block(
         height: auto,
         width: 100%,
